@@ -1,0 +1,287 @@
+*{
+	font: 16px Helvetica,sans-serif;
+	margin: 0;
+}
+
+body{
+	height: 100vh;
+	overflow: hidden;
+}
+.s{display: block;}
+.h{display: none;}
+header nav{
+	padding: 4px;
+	background-color: black;
+	display: inline-block;
+	width: 100%;
+	flex-direction: column;
+}
+nav ul{display: inline;}
+header nav ul li{
+	padding: 4px;
+	border-radius: 2px;
+	list-style: none;
+	display: inline-block;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+header nav ul li:hover{
+	background-color: gray;
+}
+[type='search']{
+	float: right;	
+	margin: 4px auto;
+	margin-right: 8px;
+	border: 1px solid black;
+	border-radius: 4px;
+	padding: 8px;
+	outline: none;
+	min-width: 300px;
+}
+
+#main{
+	display: flex;
+	flex-direction: row;
+}
+
+section{
+	width: 30%;
+	color: white;
+	position: absolute;
+	background-color: black;
+	min-height: 100%;
+	display:block;
+}
+section > div{
+	border-bottom: 2px solid black;
+	width: 100%;
+	background-color: grey;
+	display: flex;
+}
+section > div:hover{
+	opacity: 0.8;
+}
+#active{
+	background-color: white;
+	color: black;
+}
+section > div > img{
+	padding: 8px;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+section > div > div > span:first-child{
+	font-size: 14px;
+	padding: 8px;
+	display: block;
+}
+section > div > div > span:nth-child(2){
+	font-size: 12px;
+	line-height: 24px;
+	color: black;
+}
+aside{
+	height: 100%;
+	width: 70%;
+	margin: auto;
+	margin-right: 0;
+	position: relative;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	height: 20%;
+	width: 70%;
+	text-align: center;
+	display: block;
+	color: gray;
+	background-color: black;
+}
+
+#msgBox{
+	position: fixed;
+	height: 73%;
+	width: 70%;
+	overflow-y: auto;
+	background-color: gold;
+}
+
+#msgInput{
+	width: 100%;
+}
+
+#reference{
+	background-color: #f7f7f7;
+	display: block;
+	border-radius: 4px;
+	width: 80%;
+	padding: 8px;
+	margin: 2px auto;
+	margin-left: 4px;
+}
+#reference button {
+	border: none;
+	border-radius: 2px;
+	color: white;
+	background-color: red;
+	cursor: pointer;
+	float: right;
+}
+
+#msgInput textarea{
+	border: 0;
+	padding: 4px;
+	height: 80px;
+	width: 98%;
+	margin-top: 4px;
+	border-radius:4px;
+	resize: none;
+	outline: none;
+	overflow: hidden;
+}
+#submit{
+	position: fixed;
+	margin-right: auto;
+	width: 30px;
+	right: 8px;
+	bottom: 30px;
+	cursor: pointer;
+}
+.msgL{
+	position: relative;
+	max-width: 400px;
+	margin: 4px 0 0 16px;
+	padding: 4px 16px 16px 4px;
+	display: block;
+	background-color: #DDD;
+	border-radius: 4px;
+}
+
+.msgL > .callOption{
+	cursor: pointer;
+	position: absolute;
+	display: block;
+	top: 8px;
+	right: 8px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: black;
+}
+.msgL > .callOption:hover{
+	background-color: white;
+}
+.msgL:before{
+	display: block;
+	background-color: gray;
+	min-width: 8px;
+	min-height: 8px;
+	content: '';
+	border-radius: 50%;
+	position: absolute;
+	bottom: -4px;
+	left: -4px;
+}
+.msgL:after{
+	display: block;
+	border: 1px solid black;
+	background-color: white;
+	min-width: 16px;
+	min-height: 16px;
+	content: '';
+	border-radius: 50%;
+	position: absolute;
+	bottom: -4px;
+	left: 4px;
+}
+
+.msgOption{
+	opacity: 0;
+	transform: scale(0);
+	transition: 0.2s all;
+}
+.msgOption button{
+	font-size: 14px;
+	border: none;
+	width: 100%;
+	background-color: gray;
+	padding: 4px;
+}
+.msgOption button:hover{
+	cursor: pointer;
+	border-radius: 2px;
+	background-color: white;
+}
+
+.callOption:hover > .msgOption{
+	opacity: 1;
+	transform: scale(1);
+	position: absolute;
+	border-radius: 4px;
+	border: 1px solid gray;
+	background-color: white
+}
+.callOption .msgOption{z-index: 4;}
+
+/*------------ user message -------------*/
+.msgR{
+	position: relative;
+	max-width: 400px;
+	margin: 8px 4px;
+	margin-left: auto;
+	padding: 8px 8px 16px 32px;
+	display: block;
+	right: 8px;
+	background-color: #EEE;
+	border-radius: 4px;
+}
+
+.msgR .reference{
+	background-color: white;
+	display: block;
+	padding: 2%;
+	margin-bottom: 8px;
+	color: grey;
+	border-radius: 4px;
+	width: 96%;
+}
+
+.msgR > .callOption{
+	cursor: pointer;
+	position: absolute;
+	display: block;
+	top: 8px;
+	left: 8px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: black;
+}
+.msgR > .callOption:hover{
+	background-color: #EEE;
+}
+
+.msgL:last-child, .msgR:last-child{
+	margin-bottom: 48px;
+}
+
+@media (max-width: 400px){
+
+	nav ul, nav ul li{display: block;}
+
+	section > div > div {display: none;}
+
+	.msgL, .msgR{
+		margin: auto;
+		margin-top: 4px;
+		display: block;
+		width: 400px;
+	}
+	.msgL{margin-left: 8px;}
+	.msgR{margin-right: 2px;}
+
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang='en-US' dir='ltr'>
+<head>
+	<title>Next</title>
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<link rel='stylesheet' href='media.css' />
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li>Home</li>
+				<li>Activity</li>
+				<li>Learn</li>
+				<li>Contact</li>
+			</ul>
+			<input type='search' name='info' placeholder='Search' />
+		</nav>
+	</header>
+	<div id='main'>
+
+		<section>
+			<div>
+				<img src='svg/photo.svg' alt='photo'>
+				<div>
+					<span>User1</span>
+					<span>Welcome</span>
+				</div>
+			</div>
+			<div id='active'>
+				<img src='svg/photo.svg' alt='photo'>
+				<div>
+					<span>User2</span>
+					<span>In my project</span>
+				</div>
+			</div>
+			<div>
+				<img src='svg/photo.svg' alt='photo'>
+				<div>
+					<span>User3</span>
+					<span>I forgot to make it</span>
+				</div>
+			</div>
+		</section>
+
+		<aside>
+			<div id='msgBox'>
+				<div class='msgL'>
+					<div class='msgText'>
+						This is a message of new and first message fox experience
+					</div>
+					<span class='callOption'>
+						<div class='msgOption'>
+							<button class='answer' onclick="answerMsg(this);">Answer</button>
+							<button class='transfert' onclick="alert('transfert');">Transfert</button>
+							<button class='delete' onclick="deleteMsg(this);">Delete</button>
+						</div>
+					</span>
+				</div>
+
+				<div class='msgR'>
+					<div class='msgText'>
+						This is a message of new and first message fox experience
+					</div>
+					<span class='callOption'>
+						<div class='msgOption'>
+							<button class='answer' onclick="answerMsg(this);">Answer</button>
+							<button class='transfert' onclick="alert('transfert');">Transfert</button>
+							<button class='delete' onclick="deleteMsg(this);">Delete</button>
+						</div>
+					</span>
+				</div>
+
+				<div class='msgR'>
+					<div class='msgText'>
+						Guy try to use this.
+					</div>
+					<span class='callOption'>
+						<div class='msgOption'>
+							<button class='answer' onclick="answerMsg(this);">Answer</button>
+							<button class='transfert' onclick="alert('transfert');">Transfert</button>
+							<button class='delete' onclick="deleteMsg(this);">Delete</button>
+						</div>
+					</span>
+				</div>
+
+				<div class='msgL'>
+					<div class='msgText'>
+						Other message to answer.
+					</div>
+					<span class='callOption'>
+						<div class='msgOption'>
+							<button class='answer' onclick="answerMsg(this);">Answer</button>
+							<button class='transfert' onclick="alert('transfert');">Transfert</button>
+							<button class='delete' onclick="deleteMsg(this);">Delete</button>
+						</div>
+					</span>
+				</div>
+
+				<div class='msgR'>
+					<span class='reference'>Guy try to use this.</span>
+					<div class='msgText'>
+						Are you sure it works?
+					</div>
+					<span class='callOption'>
+						<div class='msgOption'>
+							<button class='answer' onclick="answerMsg(this);">Answer</button>
+							<button class='transfert' onclick="alert('transfert');">Transfert</button>
+							<button class='delete' onclick="deleteMsg(this);">Delete</button>
+						</div>
+					</span>
+				</div>
+			</div>
+
+			<footer>
+				<div id='msgInput'>
+					<textarea id='textarea'></textarea>
+					<img id='submit' src='./SVG/send.svg' />
+				</div>
+				<span>@ Adriano Tiotsop Fogue</span>
+			</footer>
+		</aside>	
+	</div>
+	<script type="text/javascript">
+
+		text = document.getElementById('textarea');
+		msgInput = document.getElementById('msgInput');
+
+		function deleteMsg(e){e.parentNode.parentNode.parentNode.remove();};
+
+		function answerMsg(e){ 
+			refText = e.parentNode.parentNode.parentNode.getElementsByClassName('msgText')[0].innerText;
+			entete = refText+"<button onclick='delReference(this)'>x</button>";
+			if( !msgInput.getElementsByTagName('span')[0] ){
+				msgInput.insertBefore(document.createElement('span'), msgInput.firstChild);
+			}
+			reference = msgInput.getElementsByTagName('span')[0];
+			reference.innerHTML = entete;
+			reference.setAttribute('id', 'reference');
+		}
+
+		document.getElementById('submit').addEventListener('click', function(){
+				if( text.value!="" ){
+					reference = '';
+					entete = document.getElementById('reference');
+
+					if( entete ){
+						entete.getElementsByTagName('button')[0].remove();
+						reference = "<span class='reference'>"+entete.innerText+"</span>";
+						entete.remove();
+					}
+					document.getElementById('msgBox').innerHTML += "<div class='msgR'>"+reference+" <div class='msgText'>" +text.value+ "</div> <span class='callOption'> <div class='msgOption'> <button class='answer' onclick=\"answerMsg(this);\">Answer</button> <button class='transfert' onclick=\"alert('transfert');\">Transfert</button> <button class='delete' onclick=\"deleteMsg(this);\">Delete</button> </div> </span> </div>";
+				}
+				text.value="";
+			});
+		function delReference(e){e.parentNode.remove();}
+	</script>
+</body>
+</html>
