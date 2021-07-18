@@ -76,18 +76,28 @@
 			text-align: center;
 			font-size: 16px;
 		}
+		[type='checkbox']{border-radius: 50%; display: inline-block;}
+		[type='checkbox']:checked+label{
+			display: block;
+		}
+		[type='checkbox']+label{
+			display: none;
+		}
 
 	</style>
 </head>
 <body>
 	<div id='product'>
 		<span id='close'>X</span>
-		<img src="./img/hair.jpeg" alt='Affiche' class='image' />
+			<input type='checkbox'/><label><img src="./img/hair.jpeg" alt='Affiche' class='image' /></label>
+			<input type='checkbox'/><label><img src="./img/zbrush.jpg" alt='Affiche' class='image' /></label>
+			<input type='checkbox'/><label><img src="./img/cloth.jpg" alt='Affiche' class='image' /></label>
 		<section>
 			<div>
 				<h1>Nom du produit</h1>
 				<h3>Caractéristiques principales</h3>
 				<p>Cet espace est reservé pour une petite desctiption</p>
+				
 				<span class="announce">Prix *</span>
 			</div>
 			<button class="btn">visiter</button>

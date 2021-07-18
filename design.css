@@ -1,3 +1,7 @@
+:root{
+	--color1: #F9B233;
+}
+
 body{
 	display: flex;
 	background-color: #222;
@@ -36,6 +40,24 @@ body{
 	max-height: 570px;
 	border-radius: 8px;
 }
+#option{
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 352px;
+	height: 342px;
+	padding: 8px;
+}
+#option>img[id]{
+	width: 21px;
+	cursor: pointer;
+	transition: 0.5s all;
+}
+#option>img[id]:hover{opacity: 0.5;}
+#option>img[id]:last-child{
+	float: right;
+}
+
 
 [type="text"], [type="password"], [type='date']{
 	font-family: Helvetica;
@@ -80,7 +102,6 @@ button, [type='submit']{
 	width: 35px;
 	height: 35px;
 	padding: 5px;
-	background-color: white;
 	border-radius: 50%;
 }
 .status img{
@@ -89,10 +110,18 @@ button, [type='submit']{
 	clip-path: circle(17.5px at 50% 50%);
 	cursor: pointer;
 }
+.hide{
+	animation-play-state: running;
+	animation: hideLeft 1s 1 infinite;
+}
 
 @keyframes showLeft{
 	from{clip-path: inset(0% 100% 100% 0%);}
 	to{clip-path: inset(0% 0% 0% 0%);}
+}
+@keyframes hideLeft{
+	from{clip-path: inset(0% 0% 0% 0%);}
+	to{clip-path: inset(0% 100% 100% 0%);}
 }
 
 @keyframes circleShow{

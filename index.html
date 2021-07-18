@@ -7,8 +7,11 @@
 	<link rel='stylesheet' href='design.css' />
 </head>
 <body>
+
 	<div id='formBox'>
-		<div id='view'></div>
+		<div id='view'>
+		</div>
+		
 		<form name='register'
 		      method="POST"
 		      enctype="multipart/form-data" >
@@ -17,29 +20,58 @@
 			<input type="date" name="birthday" required='required' />
 			<input type='submit' name="submit" value="Next" /><br/>
 			<div id='status'>
-				<span class='status' style="background: url('./svg/status1.svg');"><img src='./img/hair.jpeg' alt='no file' /></span>
-				<span class='status' style="background: url('./svg/status2.svg');"><img src='./img/cloth.jpg' alt='no file' /></span>
-				<span class='status' style="background: url('./svg/status3.svg');"><img src='./img/sculpt.jpg' alt='no file' /></span>
-				<span class='status' style="background: url('./svg/status4.svg');"><img src='./img/cou.jpg' alt='no file' /></span>
-				<span class='status' style="background: url('./svg/status5.svg');"><img src='./img/head.jpg' alt='no file' /></span>
-				<span class='status' style="background: url('./svg/status6.svg');"><img src='./img/zbrush.jpg' alt='no file' /></span>
-				<span class='status' style="background: url('./svg/status7.svg');"><img src='./img/hair.jpeg' alt='no file' /></span>
+				<span class='status' style="background: url('./svg/status1.svg');"><img src='./img/hair.jpeg' alt='0' /></span>
+				<span class='status' style="background: url('./svg/status2.svg');"><img src='./img/cloth.jpg' alt='1'  /></span>
+				<span class='status' style="background: url('./svg/status3.svg');"><img src='./img/sculpt.jpg' alt='2'  /></span>
+				<span class='status' style="background: url('./svg/status4.svg');"><img src='./img/cou.jpg' alt='3'  /></span>
+				<span class='status' style="background: url('./svg/status5.svg');"><img src='./img/head.jpg' alt='4'  /></span>
+				<span class='status' style="background: url('./svg/status6.svg');"><img src='./img/zbrush.jpg' alt='5'  /></span>
+				<span class='status' style="background: url('./svg/status7.svg');"><img src='./img/goku.jpg' alt='6'  /></span>
 			</div>
 		</form>
-		<script type="text/javascript">
-			view = document.getElementById('view');
-			function first(e){
-				view.style.display='block';
-				view.innerHTML = e.innerHTML;
-			}
-			function showStatus(){
-				img = document.querySelectorAll('#status .status');
+
+		<div id='option'>
+			<img id='prev' src='./svg/prev.svg' alt='x'/>
+			<img id='next' src='./svg/next.svg' alt='x'/>
+			<img id='close' src='./svg/close.svg' alt='x'/>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		view = document.getElementById('view');
+		status = document.getElementById('status');
+
+		function first(e){
+			view.style.display='block';
+			view.innerHTML = e.innerHTML;
+			document.getElementById('option').style.display = 'block';
+		}
+
+		function showStatus(){
+			img = document.querySelectorAll('#status .status');
 				for(let i=0; i<img.length; i++){
 					img[i].addEventListener('click', function(){first(this)});
 				}
 			}
-			showStatus();
-		</script>
-	</div>
+
+		showStatus();
+
+		document.getElementById('close').onclick = function(e){
+			document.getElementById('option').style.display = 'none';
+			view.innerHTML = '';
+		}
+
+		document.getElementById('next').onclick  = function(){
+			num = ( parseInt(view.querySelector('img').alt) +1 )%7;
+			view.innerHTML = document.getElementsByTagName('span')[num].innerHTML;
+
+		}
+
+		document.getElementById('prev').onclick  = function(){;
+			num = ( parseInt(view.querySelector('img').alt) +6 )%7;
+			view.innerHTML = document.getElementsByTagName('span')[num].innerHTML;
+		}
+
+	</script>
 </body>
 </html>
