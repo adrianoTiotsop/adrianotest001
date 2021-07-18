@@ -44,6 +44,7 @@
 		function first(e){
 			view.style.display='block';
 			view.innerHTML = e.innerHTML;
+			view.style.backgroundColor = 'rgba(0, 0, 0, 0.91)';
 			document.getElementById('option').style.display = 'block';
 		}
 
@@ -59,6 +60,7 @@
 		document.getElementById('close').onclick = function(e){
 			document.getElementById('option').style.display = 'none';
 			view.innerHTML = '';
+			view.style.display = 'none';
 		}
 
 		document.getElementById('next').onclick  = function(){
