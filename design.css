@@ -55,6 +55,7 @@ body{
 	width: 352px;
 	height: 342px;
 	padding: 8px;
+	border-radius: 8px;
 }
 #option>img[id]{
 	width: 21px;
