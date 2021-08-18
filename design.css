@@ -38,10 +38,11 @@ body{
 	min-height: 570px;
 	margin-top: 0; 
 	margin: auto;
+	border-radius:8px;
 }
 
 #view img{
-	 position: absolute;
+	position: absolute;
 	animation: circleShow 1s 1 linear;
 	max-width: 360px;
 	max-height: 570px;
